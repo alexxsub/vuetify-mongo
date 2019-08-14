@@ -67,6 +67,8 @@
         item-key="id" // ключевое поле
         hide-default-footer // убрать встроенную пагинацию
         class="elevation-1" // чтобы тень была
+        :loading="false" // включить бегунук на таблице, типа загрузка
+        loading-text="Загрузка данных ... подождите!" // собственно текст выводимый при загрузке
       -->
       <v-data-table
         :headers="headers"
@@ -78,6 +80,9 @@
         item-key="id"
         hide-default-footer
         class="elevation-1"
+        :search="searchTerm"
+        :loading="loading"
+        loading-text="Загрузка данных ... подождите!"
       >
         <!-- у таблицы есть несколько предопределенных слотов, скрытых элментов, которым можно
         описать шаблон и выводить при опреденных событиях-->
@@ -135,6 +140,7 @@ export default {
   name: "App",
   data() {
     return {
+      loading: true,
       dialog: false,
       // структура для уведомлений
       snackbar: {
@@ -206,13 +212,18 @@ export default {
         this.Phones &&
         (this.pagination.rowsPerPage != null ||
           this.pagination.rowsPerPage != 0)
-      )
+      ) {
         // если данные с бэкенда есть, то считаем
         return Math.ceil(this.Phones.length / this.pagination.rowsPerPage);
-      else return 0; //
+      } else return 0; //
     }
   },
   watch: {
+    pages() {
+      // отслеживаем изменение расчета страниц, если оно было, то данные есть с бэкенда
+      // и загрузчик выключаем
+      if (this.Phones) this.loading = false;
+    },
     dialog(val) {
       val || this.close();
     }
