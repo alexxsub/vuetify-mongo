@@ -272,6 +272,9 @@ export default {
             }
           ]
         });
+        this.snackbar.text = `УДАЛЕНО! ${this.editedItem.number} ${this.editedItem.name}`;
+        this.snackbar.color = "red";
+        this.snackbar.show = true;
       }
     },
     // эта функция заполняет поля ввода в форме редактирования
@@ -307,7 +310,7 @@ export default {
         this.updatePhone();
       } else {
         this.addPhone();
-        this.Phones.push(this.editedItem);
+        // this.Phones.push(this.editedItem);
         this.pagination.sortBy = "id";
         this.pagination.descending = false;
         this.pagination.page = this.pages;
