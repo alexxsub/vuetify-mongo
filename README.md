@@ -1,5 +1,7 @@
 # vuetify-mongo
 
+Бэкенд берем здесь https://github.com/alexxsub/apollo-CRUD-demo-mongodb.git
+
 ## Project setup
 ```
 npm install
