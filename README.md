@@ -1,6 +1,6 @@
 # vuetify-mongo
 
-Бэкенд берем здесь https://github.com/alexxsub/apollo-CRUD-demo-mongodb.git
+Backend over here https://github.com/alexxsub/apollo-CRUD-demo-mongodb.git
 
 ## Project setup
 ```
