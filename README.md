@@ -1,4 +1,4 @@
-# vuetify-mongo
+# vuetify-mongo CRUD frontend demo
 
 Backend over here https://github.com/alexxsub/apollo-CRUD-demo-mongodb.git
 
